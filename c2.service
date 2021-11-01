@@ -1,0 +1,11 @@
+[Unit]
+Description=Hak5 Control Panel
+After=network.target
+
+[Service]
+Type=simple
+PIDFile=/var/run/hak5-c2.pid
+ExecStart=/usr/bin/hak5-c2 -db /usr/share/hak5-c2/c2.db -listenport 8092 -sshport 2022
+
+[Install]
+WantedBy=multi-user.target
