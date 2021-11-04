@@ -1,6 +1,6 @@
 Summary: Hak5 C2 Panel
 Name: hak5-c2
-Version: 2.0
+Version: 3.1.2
 Release: 1%{?dist}
 License: GPLv2
 Group: System Environment/Base
@@ -64,6 +64,9 @@ mv -f %{_datarootdir}/%{name}/c2.db %{_datarootdir}/%{name}/c2.old
 %dir %{_datarootdir}/%{name}
 
 %changelog
+* Thu Nov 04 2021 CasjaysDev <rpm-devel@casjaysdev.com> - 0.2
+- Updated c2 to version 3.1.2
+
 * Thu Dec 13 2018 CasjaysDev <rpm-admin@rpm-devel.casjaysdev.com> - 0.1
 - initial release
 
