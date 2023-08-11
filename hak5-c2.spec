@@ -4,7 +4,7 @@ Version: 3.1.2
 Release: 1%{?dist}
 License: GPLv2
 Group: System Environment/Base
-URL: http://casjaysdev.com/
+URL: http://casjaysdev.pro/
 
 Source0: c2-%BuildArch
 Source1: c2.service
@@ -74,9 +74,9 @@ mv -f %{_datarootdir}/%{name}/c2.db %{_datarootdir}/%{name}/c2.old &>/dev/null |
 %dir %{_datarootdir}/%{name}
 
 %changelog
-* Thu Nov 04 2021 CasjaysDev <rpm-devel@casjaysdev.com> - 0.2
+* Thu Nov 04 2021 CasjaysDev <rpm-devel@casjaysdev.pro> - 0.2
 - Updated c2 to version 3.1.2
 
-* Thu Dec 13 2018 CasjaysDev <rpm-devel@casjaysdev.com> - 0.1
+* Thu Dec 13 2018 CasjaysDev <rpm-devel@casjaysdev.pro> - 0.1
 - initial release
 
