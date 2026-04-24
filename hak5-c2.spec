@@ -3,10 +3,9 @@ Name: hak5-c2
 Version: 3.1.2
 Release: 1%{?dist}
 License: GPLv2
-Group: System Environment/Base
 URL: http://casjaysdev.pro/
 
-Source0: c2-%BuildArch
+Source0: c2-%{_arch}
 Source1: c2.service
 #Source2: c2-apache.conf
 #Source3: c2-nginx.conf
@@ -21,17 +20,12 @@ Download url - https://downloads.hak5.org/cloudc2/community
 # %build
 
 %install
-%{__rm} -rf %{buildroot}
 %{__install} -Dpm 0755 %{SOURCE0} %{buildroot}/%{_datarootdir}/%{name}/c2-%BuildArch
 %{__install} -Dpm 0644 %{SOURCE1} %{buildroot}/%{_unitdir}/%{name}.service
 #%{__install} -Dpm 0644 %{SOURCE2} %{buildroot}/%{_sysconfdir}/httpd/conf.d/%{name}.conf
 %{__install} -d %{buildroot}%{_datarootdir}/%{name}
 %{__install} -d %{buildroot}%{_bindir}
 touch %{buildroot}%{_bindir}/%{name}
-
-
-%clean
-%{__rm} -rf %{buildroot}
 
 %post
 echo "#!/bin/sh
@@ -66,7 +60,6 @@ systemctl reload httpd > /dev/null 2>&1
 mv -f %{_datarootdir}/%{name}/c2.db %{_datarootdir}/%{name}/c2.old &>/dev/null || true
 
 %files
-%defattr(-, root, root, 0755)
 #%{_sysconfdir}/httpd/conf.d/%{name}.conf
 %{_datarootdir}/%{name}/c2-%BuildArch
 %{_unitdir}/%{name}.service
@@ -74,9 +67,11 @@ mv -f %{_datarootdir}/%{name}/c2.db %{_datarootdir}/%{name}/c2.old &>/dev/null |
 %dir %{_datarootdir}/%{name}
 
 %changelog
+* Fri Apr 24 2026 CasjaysDev <rpm-devel@casjaysdev.pro> - 3.1.2-1
+- Modernize spec for AlmaLinux 10; remove Group, %clean, %defattr
+
 * Thu Nov 04 2021 CasjaysDev <rpm-devel@casjaysdev.pro> - 0.2
 - Updated c2 to version 3.1.2
 
 * Thu Dec 13 2018 CasjaysDev <rpm-devel@casjaysdev.pro> - 0.1
 - initial release
-
